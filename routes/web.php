@@ -16,6 +16,10 @@ Route::get('/', function () {
 });
 
 
-    Route::get('profile/create', 'ProfileController@add');
-    Route::post('profile/create', 'ProfileController@create');
+    Route::get('profile/create', 'ProfileController@add')->middleware('auth');
+    Route::post('profile/create', 'ProfileController@create')->middleware('auth');
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

@@ -9,7 +9,7 @@
  <div class="container">
         <div class="row">
             <div class="col-md-8 mx-auto">
-                <h2>新規患者登録</h2>
+                <h1>新規患者登録</h1>
                 <form action="{{ action('ProfileController@create') }}" method="post" enctype="multipart/form-data">
                      @if (count($errors) > 0)
                         <ul>
@@ -61,6 +61,7 @@
                     {{ csrf_field() }}
                     <input type="submit" class="btn btn-primary" value="登録">
                 </form>
+               <button type=“button” onclick="location.href='/home'">ホーム</button>
             </div>
         </div>
     </div>

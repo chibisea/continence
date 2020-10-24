@@ -15,9 +15,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
-    Route::get('profile/create', 'ProfileController@add')->middleware('auth');
-    Route::post('profile/create', 'ProfileController@create')->middleware('auth');
+Route::group(['middleware' => 'auth'], function() {
+    Route::get('profile/create', 'ProfileController@add');
+    Route::post('profile/create', 'ProfileController@create');
+    
+    Route::get('profile/index', 'ProfileController@index');
+    
+    
+});
 
 Auth::routes();
 

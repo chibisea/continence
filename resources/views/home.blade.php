@@ -12,7 +12,7 @@
                 <h1>コンチネンスケア</h1>
                 
                <button type=“button” onclick="location.href='/profile/create'">＋新規作成</button><br>
-               <button type=“button” onclick="location.href='/patient'">患者一覧</button>
+               <button type=“button” onclick="location.href='/profile/index'">患者一覧</button>
             </div>
         </div>
     </div>

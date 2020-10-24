@@ -26,24 +26,17 @@
                     </div>
                     <div class="form-group row">
                         <label class="col-md-2">性別</label>
-                        <select name=”gender”>
-                         <option value=”man”>男性</option>
-                         <option value=”woman”>女性</option>
+                        <select name="gender">
+                         <option value="man">男性</option>
+                         <option value="woman">女性</option>
                         </select>
                     </div>
                     <div class="form-group row">
                         <label class="col-md-2">年齢</label>
-                        <select name=”age”>
-                         <option value=”sixty”>60歳</option>
-                         <option value=”sixty”>61歳</option>
-                         <option value=”sixty”>62歳</option>
-                         <option value=”sixty”>63歳</option>
-                         <option value=”sixty”>64歳</option>
-                         <option value=”sixty”>65歳</option>
-                         <option value=”sixty”>66歳</option>
-                         <option value=”sixty”>67歳</option>
-                         <option value=”sixty”>68歳</option>
-                         <option value=”sixty”>69歳</option>
+                        <select name="age">
+                          @foreach(range(60,110) as $cnt)
+                           <option value="{{$cnt}}"> {{$cnt . "歳"}}</option>
+                          @endforeach
                         </select>
                     </div>
                     <div class="form-group row">
@@ -61,7 +54,7 @@
                     {{ csrf_field() }}
                     <input type="submit" class="btn btn-primary" value="登録">
                 </form>
-               <button type=“button” onclick="location.href='/home'">ホーム</button>
+               <button type="button" onclick="location.href='/home'">ホーム</button>
             </div>
         </div>
     </div>

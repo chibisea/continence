@@ -21,6 +21,10 @@ Route::group(['middleware' => 'auth'], function() {
     
     Route::get('profile/index', 'ProfileController@index');
     
+    Route::get('profile/delete', 'ProfileController@delete');
+    
+    Route::get('profile/edit', 'ProfileController@edit');
+    Route::post('profile/edit', 'ProfileController@update');
     
 });
 

@@ -26,6 +26,11 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('profile/edit', 'ProfileController@edit');
     Route::post('profile/edit', 'ProfileController@update');
     
+    Route::get('diary/create', 'DiaryController@add');
+    Route::post('diary/create', 'DiaryController@create');
+    
+    Route::get('diary/index', 'DiaryController@read');
+
 });
 
 Auth::routes();

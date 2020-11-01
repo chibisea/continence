@@ -8,9 +8,9 @@ use App\Diary;
 
 class DiaryController extends Controller
 {
-    public function add()
+    public function add(Request $request)
     {
-    return view('diary.create');
+    return view('diary.create',["profile_id"=>$request->profile_id]);
     }
     
     public function create(Request $request)
@@ -25,9 +25,10 @@ class DiaryController extends Controller
         return redirect('diary/create');
     }
     
-    public function read()
+    public function index(Request $request)
     {
-    return view('diary.index');
+        $diaries = Diary::where('$request->profile_id')->get();
+        return view('diary.index', ['diaries' => $diaries]);
     }
     //
 }

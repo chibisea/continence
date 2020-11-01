@@ -28,7 +28,7 @@ class ProfileController extends Controller
     
     public function index(Request $request)
     {
-        $profiles = Profile::all()->sortBy('name_kana');
+        $profiles = Profile::all()->sortByDesc('name');
         return view('profile.index', ['profiles' => $profiles]);
     }
     

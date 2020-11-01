@@ -46,11 +46,11 @@
                     </div>
                     <div class="form-group row">
                      <label class="col-md-2">便臭</label>
-                     <input type="radio" name="smell" value="1">正常
-                     <input type="radio" name="smell" value="2">おむつを開けた時点で感じるやや不快な臭い
-                     <input type="radio" name="smell" value="3">おむつを開けた時点で感じる不快な臭い
-                     <input type="radio" name="smell" value="4">部屋に入ると感じる不快な臭い
-                     <input type="radio" name="smell" value="5">廊下にいても感じられる不快な臭い
+                     <input type="radio" name="smell" value="1">(1)正常
+                     <input type="radio" name="smell" value="2">(2)おむつを開けた時点で感じるやや不快な臭い
+                     <input type="radio" name="smell" value="3">(3)おむつを開けた時点で感じる不快な臭い
+                     <input type="radio" name="smell" value="4">(4)部屋に入ると感じる不快な臭い
+                     <input type="radio" name="smell" value="5">(5)廊下にいても感じられる不快な臭い
                     </div>
                     <div class="form-group row">
                      <label class="col-md-2">便の色</label>
@@ -64,52 +64,46 @@
                         <label class="col-md-2">下剤の種類</label>
                         <div class="pulldownset">
                          <select class="mainselect">
-                          <option value="">下剤の選択</option>
-                          <option value="gezai">下剤</option>
+                          <option value="">下剤の種類を選択</option>
+                          <option value="gezai">一般的な下剤</option>
                           <option value="syoka">消化管運動機能改善剤</option>
                           <option value="kanpo">漢方</option>
                          </select>
-                          <select id="gezai" class="subbox">
-                           <option value="">下剤を選択</option>
-                           <option value="medicine">マグミット錠</option>
-                           <option value="medicine">バルコーゼ顆粒</option>
-                           <option value="medicine">アローゼン顆粒</option>
-                           <option value="medicine">プルゼニド錠</option>
-                           <option value="medicine">ラキソベロン内用液</option>
-                           <option value="medicine">ピコスルファートナトリウム内用液</option>
-                           <option value="medicine">ルビプロストン</option>
-                           <option value="medicine">リナクロチド</option>
-                           <option value="medicine">新レシカルボン坐剤</option>
-                           <option value="medicine">テレミンソフト坐剤</option>
-                           <option value="medicine">グリセリン浣腸</option>
-                           <option value="medicine">アミティーザカプセル</option>
-                          </select>
-                          <select id="shoka" class="subbox">
-                           <option value="">消化管運動機能改善剤を選択</option>
-                           <option value="medicine">ガスモチン錠5mg</option>
-                           <option value="medicine">ガスコン錠80mg</option>
-                           <option value="medicine">ガナトン錠</option>
-                           <option value="medicine">プルゼニド錠</option>
-                           <option value="medicine">セレキノン錠100mg</option>
-                           <option value="medicine">アコファイド錠</option>
-                           <option value="medicine">パントール注射液</option>
-                           <option value="medicine">プロスタルモン・F注射液</option>
-                          </select>
-                          <select id="kanpo" class="subbox">
-                           <option value="">漢方を選択</option>
-                           <option value="medicine">麻子仁丸</option>
-                           <option value="medicine">大黄甘草湯</option>
-                           <option value="medicine">大建中湯</option>
-                           <option value="medicine">六君子湯</option>
-                           <option value="medicine">桂皮加芍薬湯</option>
+                          <select name="medicine" class="subbox" disabled>
+                           <option value=""selected="selected">下剤名を選択</option>
+                           <option value="マグミット" data-val="gezai">マグミット錠</option>
+                           <option value="バルコーゼ" data-val="gezai">バルコーゼ顆粒</option>
+                           <option value="アローゼン" data-val="gezai">アローゼン顆粒</option>
+                           <option value="プルゼニド" data-val="gezai">プルゼニド錠</option>
+                           <option value="ラキソベロン" data-val="gezai">ラキソベロン内用液</option>
+                           <option value="ピコ" data-val="gezai">ピコスルファートナトリウム内用液</option>
+                           <option value="ルビプロストン" data-val="gezai">ルビプロストン</option>
+                           <option value="リクロチド" data-val="gezai">リナクロチド</option>
+                           <option value="新レシカ" data-val="gezai">新レシカルボン坐剤</option>
+                           <option value="テレミンソフト" data-val="gezai">テレミンソフト坐剤</option>
+                           <option value="グリセリン" data-val="gezai">グリセリン浣腸</option>
+                           <option value="アミティーザ" data-val="gezai">アミティーザカプセル</option>
+                           <option value="ガスモチン" data-val="syoka">ガスモチン錠5mg</option>
+                           <option value="ガスコン" data-val="syoka">ガスコン錠80mg</option>
+                           <option value="ガナトン" data-val="syoka">ガナトン錠</option>
+                           <option value="プルゼニド" data-val="syoka">プルゼニド錠</option>
+                           <option value="セレキノン" data-val="syoka">セレキノン錠100mg</option>
+                           <option value="アコファイド" data-val="syoka">アコファイド錠</option>
+                           <option value="パントール" data-val="syoka">パントール注射液</option>
+                           <option value="プロスタルモン" data-val="syoka">プロスタルモン・F注射液</option>
+                           <option value="麻子仁丸" data-val="kanpo">麻子仁丸</option>
+                           <option value="大黄甘草湯" data-val="kanpo">大黄甘草湯</option>
+                           <option value="大建中湯" data-val="kanpo">大建中湯</option>
+                           <option value="六君子湯" data-val="kanpo">六君子湯</option>
+                           <option value="桂皮" data-val="kanpo">桂皮加芍薬湯</option>
                           </select>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-2">下剤の使用量</label>
+                        <label class="col-md-2">下剤の使用量(個/滴/錠/管/グラム)</label>
                         <select name="amount">
                           @foreach(range(1,30) as $cnt)
-                           <option value="{{$cnt}}"> {{$cnt . "(個/滴/錠/管/グラム"}}</option>
+                           <option value="{{$cnt}}"> {{$cnt}}</option>
                           @endforeach
                         </select>
                     </div>
@@ -127,11 +121,47 @@
                             <input type="text" class="form-control" name="note" value="{{ old('note') }}">
                         </div>
                     </div>
+                    <input type="hidden" name="profile_id" value="{{$profile_id}}"/>
                     {{ csrf_field() }}
                     <input type="submit" class="btn btn-primary" value="登録">
                 </form>
+               <div>
+               <button type="button" onclick="location.href='/profile/index'">戻る</button>
+               </div>
                <button type="button" onclick="location.href='/home'">ホーム</button>
             </div>
         </div>
     </div>
+    <script type="text/javascript">
+    window.onload = function(){
+     var $subbox = $('.subbox'); //都道府県の要素を変数に入れます。
+var original = $subbox.html(); //後のイベントで、不要なoption要素を削除するため、オリジナルをとっておく
+ 
+//地方側のselect要素が変更になるとイベントが発生
+$('.mainselect').change(function() {
+ 
+  //選択された地方のvalueを取得し変数に入れる
+  var val1 = $(this).val();
+ 
+  //削除された要素をもとに戻すため.html(original)を入れておく
+  $subbox.html(original).find('option').each(function() {
+    var val2 = $(this).data('val'); //data-valの値を取得
+ 
+    //valueと異なるdata-valを持つ要素を削除
+    if (val1 != val2) {
+      $(this).not(':first-child').remove();
+    }
+ 
+  });
+ 
+  //地方側のselect要素が未選択の場合、都道府県をdisabledにする
+  if ($(this).val() == "") {
+    $subbox.attr('disabled', 'disabled');
+  } else {
+    $subbox.removeAttr('disabled');
+  }
+ 
+});
+}
+</script>
 @endsection

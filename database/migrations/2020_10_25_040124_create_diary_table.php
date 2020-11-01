@@ -13,8 +13,9 @@ class CreateDiaryTable extends Migration
      */
     public function up()
     {
-        Schema::create('diary', function (Blueprint $table) {
+        Schema::create('diaries', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->integer('profile_id');
             $table->string('date');//日付の保存カラム
             $table->string('time');//時間の保存カラム
             $table->string('bs');//BSの保存カラム

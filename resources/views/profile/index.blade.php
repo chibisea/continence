@@ -29,8 +29,8 @@
                                     <td>{{ $profile->age}}</td>
                                     <td>{{ $profile->ward}}</td>
                                     <td>{{ $profile->disease}}</td>
-                                    <td><button type="button" onclick="location.href='/diary/create'">日誌入力</button></td>
-                                    <td><button type="button" onclick="location.href='/diary/index'">日誌確認</button></td>
+                                    <td><button type="button" onclick="location.href='/diary/create?profile_id={{$profile->id}}'">日誌入力</button></td>
+                                    <td><button type="button" onclick="location.href='/diary/index?profile_id={{$profile->id}}'">日誌確認</button></td>
                                     <td>
                                      <div>
                                       <a href="{{ action('ProfileController@edit', ['id' => $profile->id]) }}">患者情報編集</a>

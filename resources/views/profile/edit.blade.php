@@ -27,13 +27,14 @@
                     <div class="form-group row">
                         <label class="col-md-2"for="gender">性別</label>
                         <select name="gender">
-                         <option value="man">男性</option>
-                         <option value="woman">女性</option>
+                         <option value="man" {{$profiles_form->gender=="man"? 'selected':''}} >男性</option>
+                         <option value="woman"{{$profiles_form->gender=="woman"? 'selected':''}}>女性</option>
                         </select>
                     </div>
                     <div class="form-group row">
                         <label class="col-md-2"for="age">年齢</label>
                         <select name="age">
+                          <option value="">{{$profiles_form->age . "歳"}}</option>
                           @foreach(range(60,110) as $cnt)
                            <option value="{{$cnt}}"> {{$cnt . "歳"}}</option>
                           @endforeach

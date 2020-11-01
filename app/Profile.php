@@ -15,4 +15,9 @@ class Profile extends Model
         'ward'=> 'required',
         'disease'=> 'required',
     );
+    public function diaries()
+    {
+      return $this->hasMany('App\Diary');
+
+    }
 }

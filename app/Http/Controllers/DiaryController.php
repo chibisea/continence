@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\HTML;
 use App\Diary;
+use App\Profile;
 
 class DiaryController extends Controller
 {
@@ -27,8 +28,9 @@ class DiaryController extends Controller
     
     public function index(Request $request)
     {
-        $diaries = Diary::where('$request->profile_id')->get();
-        return view('diary.index', ['diaries' => $diaries]);
+        $id = $request->profile_id;
+        $diaries = Diary::where('profile_id',$id)->get()->sortBy('date');
+        return view('diary.index',['diaries' => $diaries]);
     }
     //
 }

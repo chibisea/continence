@@ -29,8 +29,13 @@ class DiaryController extends Controller
     public function index(Request $request)
     {
         $id = $request->profile_id;
-        $diaries = Diary::where('profile_id',$id)->get()->sortBy('date');
-        return view('diary.index',['diaries' => $diaries]);
+        $date = date("Y-m-d H:i:s");;
+        $day = date('j',strtotime($date));
+        $month = date('n', strtotime($date));
+        $year = date('y', strtotime($date));
+        $lastday = date( 't' , strtotime($date));
+        $diaries = Diary::where('profile_id',$id)->whereMonth('date', '$month')->get()->sortBy('date');
+        return view('diary.index',['diaries' => $diaries,'lastday'=>$lastday,]);
     }
     //
 }

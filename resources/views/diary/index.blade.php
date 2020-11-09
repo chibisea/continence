@@ -25,9 +25,10 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($diaries as $diary)
+                             @foreach(range(1,$lastday) as $a)
+                              @foreach($diaries as $diary)
                                 <tr>
-                                    <th>{{ $diary->date }}</th>
+                                    <th>{{$a}}</th>
                                     <td>{{ $diary->time}}</td>
                                     <td>{{ $diary->bs}}</td>
                                     <td>{{ $diary->amount}}</td>
@@ -38,6 +39,7 @@
                                     <td>{{ $diary->water}}</td>
                                     <td>{{ $diary->note}}</td>
                                 </tr>
+                             @endforeach
                             @endforeach
                         </tbody>
                     </table>

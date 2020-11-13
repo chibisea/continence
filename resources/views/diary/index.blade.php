@@ -6,6 +6,11 @@
 
 {{-- profile.blade.phpの@yield('content')に以下のタグを埋め込む --}}
 @section('content')
+<div class="card-header text-center">
+ <a class="btn btn-outline-secondary float-left">前の月</a>
+  <span>{{$month."月"}}</span>
+ <a class="btn btn-outline-secondary float-right">次の月</a>
+</div>
 <div class="row">
             <div class="list-profiles col-md-10 mx-auto">
                 <div class="row">
@@ -25,10 +30,13 @@
                             </tr>
                         </thead>
                         <tbody>
-                             @foreach(range(1,$lastday) as $a)
+                            @for($i=1;$i<=$lastday;$i++)
+                             <?php $flag= true ?>
                               @foreach($diaries as $diary)
+                               @if($i == date("j",strtotime($diary->date)))
+                               <?php $flag= false ?>
                                 <tr>
-                                    <th>{{$a}}</th>
+                                    <th>{{$i}}</th>
                                     <td>{{ $diary->time}}</td>
                                     <td>{{ $diary->bs}}</td>
                                     <td>{{ $diary->amount}}</td>
@@ -39,8 +47,23 @@
                                     <td>{{ $diary->water}}</td>
                                     <td>{{ $diary->note}}</td>
                                 </tr>
-                             @endforeach
-                            @endforeach
+                               @endif
+                              @endforeach
+                              @if($flag)
+                              <tr>
+                                    <th>{{$i}}</th>
+                                    <td>排便なし</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                              @endif
+                             @endfor
                         </tbody>
                     </table>
                 </div>

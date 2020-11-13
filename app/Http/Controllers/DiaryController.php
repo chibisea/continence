@@ -29,13 +29,13 @@ class DiaryController extends Controller
     public function index(Request $request)
     {
         $id = $request->profile_id;
-        $date = date("Y-m-d H:i:s");;
-        $day = date('j',strtotime($date));
+        $date = date("Y-m-d H:i:s");
+        $days = date('j',strtotime($request->date));
         $month = date('n', strtotime($date));
         $year = date('y', strtotime($date));
         $lastday = date( 't' , strtotime($date));
-        $diaries = Diary::where('profile_id',$id)->whereMonth('date', '$month')->get()->sortBy('date');
-        return view('diary.index',['diaries' => $diaries,'lastday'=>$lastday,]);
+        $diaries = Diary::where('profile_id',$id)->get();
+        return view('diary.index',['diaries' => $diaries,'lastday'=>$lastday,'days'=>$days,'month'=>$month]);
     }
     //
 }

@@ -17,7 +17,7 @@
                                 <td width="5%">性別</td>
                                 <td width="5%">年齢</td>
                                 <td width="5%">病棟</td>
-                                <td width="10%">基礎疾患</td>
+                                <td width="10%">病名</td>
                             </tr>
                         </thead>
                         <tbody>

@@ -46,7 +46,7 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-2">基礎疾患</label>
+                        <label class="col-md-2">病名</label>
                         <div class="col-md-10">
                             <input type="text" class="form-control" name="disease" value="{{ old('disease') }}">
                         </div>

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\HTML;
 use App\Diary;
 use App\Profile;
+use Carbon\Carbon;
 
 class DiaryController extends Controller
 {
@@ -28,14 +29,38 @@ class DiaryController extends Controller
     
     public function index(Request $request)
     {
+        
         $id = $request->profile_id;
         $date = date("Y-m-d H:i:s");
-        $days = date('j',strtotime($request->date));
-        $month = date('n', strtotime($date));
-        $year = date('y', strtotime($date));
-        $lastday = date( 't' , strtotime($date));
-        $diaries = Diary::where('profile_id',$id)->get();
-        return view('diary.index',['diaries' => $diaries,'lastday'=>$lastday,'days'=>$days,'month'=>$month]);
+        if($request->month == "" ){
+            
+            $year = date('Y', strtotime($date));
+            $month = date('n', strtotime($date));
+            // dd($year);
+            $lastday = date( 't' , strtotime($date));
+            $diaries = Diary::where('profile_id',$id)->whereYear('date',$year)->whereMonth('date',$month)->get();
+        }else{
+            $year = $request->year;
+            $month = $request->month;
+            $lastday = date('t',strtotime("$year-$month-01"));
+            $diaries = Diary::where('profile_id',$id)->whereYear('date',$year)->whereMonth('date',$month)->get();
+        }
+        // dd($diaries);
+        $nextYear =  Carbon::create($year, $month)->addMonthsNoOverflow()->year;
+        $nextMonth = Carbon::create($year, $month)->addMonthsNoOverflow()->month;
+        
+        $prevYear = Carbon::create($year, $month)->subMonthNoOverflow()->year;
+        $prevMonth = Carbon::create($year, $month)->subMonthNoOverflow()->month;
+        
+        return view('diary.index',[
+            'id' => $id,
+            'diaries' => $diaries,
+            'lastday'=>$lastday,
+            'month'=>$month,
+            'nextYear' => $nextYear,
+            'nextMonth' => $nextMonth,
+            'prevYear' => $prevYear,
+            'prevMonth' => $prevMonth,]);
     }
     //
 }

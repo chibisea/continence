@@ -7,9 +7,9 @@
 {{-- profile.blade.phpの@yield('content')に以下のタグを埋め込む --}}
 @section('content')
 <div class="card-header text-center">
- <a class="btn btn-outline-secondary float-left">前の月</a>
+ <a href="{{ action("DiaryController@index", ['profile_id' => $id,'year'=>$prevYear,'month'=>$prevMonth]) }}" class="btn btn-outline-success float-left">前月</a>
   <span>{{$month."月"}}</span>
- <a class="btn btn-outline-secondary float-right">次の月</a>
+ <a href="{{ action("DiaryController@index", ['profile_id' => $id,'year'=>$nextYear,'month'=>$nextMonth]) }}" class="btn btn-outline-success float-right">翌月</a>
 </div>
 <div class="row">
             <div class="list-profiles col-md-10 mx-auto">

@@ -11,14 +11,14 @@ class Diary extends Model
     public static $rules = array(
         'profile_id'=>'required',
         'date'=> 'required',
-        'time'=> 'required',
-        'bs'=> 'required',
-        'size'=> 'required',
-        'smell'=> 'required',
-        'color'=> 'required',
-        'medicine'=> 'required',
-        'amount'=> 'required',
+        'time',
+        'bs',
+        'size',
+        'smell',
+        'color',
+        'medicine',
+        'amount',
         'water'=> 'required',
-        'note'=> 'required',
+        'note',
     );
 }

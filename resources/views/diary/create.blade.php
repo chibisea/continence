@@ -54,11 +54,11 @@
                     </div>
                     <div class="form-group row">
                      <label class="col-md-2">便の色</label>
-                     <input type="radio" name="color" value="1">薄茶
-                     <input type="radio" name="color" value="2">茶
-                     <input type="radio" name="color" value="3">黒
-                     <input type="radio" name="color" value="4">白色・灰色
-                     <input type="radio" name="color" value="5">赤
+                     <input type="radio" name="color" value="薄茶">薄茶
+                     <input type="radio" name="color" value="茶">茶
+                     <input type="radio" name="color" value="黒">黒
+                     <input type="radio" name="color" value="白・灰色">白色・灰色
+                     <input type="radio" name="color" value="赤">赤
                     </div>
                     <div class="form-group row">
                         <label class="col-md-2">下剤の種類</label>

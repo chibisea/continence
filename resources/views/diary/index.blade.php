@@ -17,7 +17,7 @@
                     <table class="table table-light">
                         <thead> 
                             <tr>
-                                <th width="5%">日付</th>
+                                <th width="10%">日付</th>
                                 <td width="5%">時刻</td>
                                 <td width="5%">BS</td>
                                 <td width="5%">便の量</td>
@@ -30,16 +30,26 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @for($i=1;$i<=$lastday;$i++)
-                             <?php $flag= true ?>
                               @foreach($diaries as $diary)
-                               @if($i == date("j",strtotime($diary->date)))
-                               <?php $flag= false ?>
+                               @if(empty($diary->bs))
                                 <tr>
-                                    <th>{{$i}}</th>
+                                    <th>{{$diary->date}}</th>
+                                    <td></td>
+                                    <td>排便なし</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>{{ $diary->medicine}}</td>
+                                    <td>{{ $diary->amount}}</td>
+                                    <td>{{ $diary->water}}</td>
+                                    <td>{{ $diary->note}}</td>
+                                </tr>
+                               @else
+                               <tr>
+                                    <th>{{$diary->date}}</th>
                                     <td>{{ $diary->time}}</td>
                                     <td>{{ $diary->bs}}</td>
-                                    <td>{{ $diary->amount}}</td>
+                                    <td>{{ $diary->size}}</td>
                                     <td>{{ $diary->smell}}</td>
                                     <td>{{ $diary->color}}</td>
                                     <td>{{ $diary->medicine}}</td>
@@ -49,21 +59,6 @@
                                 </tr>
                                @endif
                               @endforeach
-                              @if($flag)
-                              <tr>
-                                    <th>{{$i}}</th>
-                                    <td>排便なし</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                              @endif
-                             @endfor
                         </tbody>
                     </table>
                 </div>

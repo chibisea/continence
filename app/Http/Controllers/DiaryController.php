@@ -24,7 +24,7 @@ class DiaryController extends Controller
         
         $diary->fill($form);
         $diary->save();
-        return redirect('diary/create');
+        return redirect('profile/index');
     }
     
     public function index(Request $request)
@@ -38,12 +38,12 @@ class DiaryController extends Controller
             $month = date('n', strtotime($date));
             // dd($year);
             $lastday = date( 't' , strtotime($date));
-            $diaries = Diary::where('profile_id',$id)->whereYear('date',$year)->whereMonth('date',$month)->get();
+            $diaries = Diary::where('profile_id',$id)->whereYear('date',$year)->whereMonth('date',$month)->get()->sortBy('date');
         }else{
             $year = $request->year;
             $month = $request->month;
             $lastday = date('t',strtotime("$year-$month-01"));
-            $diaries = Diary::where('profile_id',$id)->whereYear('date',$year)->whereMonth('date',$month)->get();
+            $diaries = Diary::where('profile_id',$id)->whereYear('date',$year)->whereMonth('date',$month)->get()->sortBy('date');
         }
         // dd($diaries);
         $nextYear =  Carbon::create($year, $month)->addMonthsNoOverflow()->year;

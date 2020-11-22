@@ -17,15 +17,15 @@ class CreateDiaryTable extends Migration
             $table->bigIncrements('id');
             $table->integer('profile_id');
             $table->date('date');//日付の保存カラム
-            $table->string('time')->nullable();//時間の保存カラム
-            $table->string('bs')->nullable();//BSの保存カラム
-            $table->string('size')->nullable();//便の大きさの保存カラム
-            $table->string('smell')->nullable();//便臭の保存カラム
-            $table->string('color')->nullable();//便の色の保存カラム
-            $table->string('medicine')->nullable();//下剤名の保存カラム
-            $table->string('amount')->nullable();//下剤量の保存カラム
+            $table->string('time')->nullable(true);//時間の保存カラム
+            $table->string('bs')->nullable(true);//BSの保存カラム
+            $table->string('size')->nullable(true);//便の大きさの保存カラム
+            $table->string('smell')->nullable(true);//便臭の保存カラム
+            $table->string('color')->nullable(true);//便の色の保存カラム
+            $table->string('medicine')->nullable(true);//下剤名の保存カラム
+            $table->string('amount')->nullable(true);//下剤量の保存カラム
             $table->string('water');//水分量の保存カラム
-            $table->string('note')->nullable();//備考の保存カラム
+            $table->string('note')->nullable(true);//備考の保存カラム
             $table->timestamps();
         });
     }

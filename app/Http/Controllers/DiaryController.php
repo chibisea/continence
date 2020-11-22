@@ -37,12 +37,10 @@ class DiaryController extends Controller
             $year = date('Y', strtotime($date));
             $month = date('n', strtotime($date));
             // dd($year);
-            $lastday = date( 't' , strtotime($date));
             $diaries = Diary::where('profile_id',$id)->whereYear('date',$year)->whereMonth('date',$month)->get()->sortBy('date');
         }else{
             $year = $request->year;
             $month = $request->month;
-            $lastday = date('t',strtotime("$year-$month-01"));
             $diaries = Diary::where('profile_id',$id)->whereYear('date',$year)->whereMonth('date',$month)->get()->sortBy('date');
         }
         // dd($diaries);
@@ -55,7 +53,6 @@ class DiaryController extends Controller
         return view('diary.index',[
             'id' => $id,
             'diaries' => $diaries,
-            'lastday'=>$lastday,
             'month'=>$month,
             'nextYear' => $nextYear,
             'nextMonth' => $nextMonth,

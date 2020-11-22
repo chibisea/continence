@@ -34,8 +34,8 @@ class DiaryController extends Controller
         $date = date("Y-m-d H:i:s");
         if($request->month == "" ){
             
-            $year = date('Y', strtotime($date));
-            $month = date('n', strtotime($date));
+            $year = string('Y', strtotime($date));
+            $month = string('n', strtotime($date));
             // dd($year);
             $diaries = Diary::where('profile_id',$id)->whereYear('date',$year)->whereMonth('date',$month)->get()->sortBy('date');
         }else{

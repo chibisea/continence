@@ -9,6 +9,7 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js"></script>
 <canvas id="bsChart"></canvas>
 <script>
+var ctx = document.getElementById("bsChart");
 var mixedChart = new Chart(ctx, {
   type: 'bar',
   data: {
@@ -24,7 +25,7 @@ var mixedChart = new Chart(ctx, {
         }],
     labels: ['1月', '2月', '3月', '4月']
   },
-  options: options
+  options: {}
 });
 </script>
 <button type="button" onclick="location.href='/profile/index'">戻る</button>

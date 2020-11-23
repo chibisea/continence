@@ -60,6 +60,14 @@ class DiaryController extends Controller
             'prevMonth' => $prevMonth,]);
     }
     
+    public function average(){
+	    $sum = 0;
+	    foreach($list as $a){
+		$sum += $a;
+	    }
+	    return($sum/count());
+        }
+    
     public function graph(Request $request)
     {
         $date = date("Y-m-d H:i:s");
@@ -93,14 +101,8 @@ class DiaryController extends Controller
         $amount9 = Diary::where('profile_id',$id)->whereBetween('date',[$prev8Week,date('Y/m/d', strtotime("-1 day", strtotime($prev7Week)))])->select('amount')->get();
         $total9 = array_sum($amount9);
         
-        //以下モデルに記載し$this->average()で呼び出して使う？
-        function average(){
-	    $sum = 0;
-	    foreach($list as $a){
-		$sum += $a;
-	    }
-	    return($sum/count());
-        }
+        //$this->average()で呼び出して使う？
+        
         $bs1 = Diary::where('profile_id',$id)->whereBetween('date',[$startDate,$date])->select('bs')->get();
         $averagebs1 = average($bs1); 
         $bs2 = Diary::where('profile_id',$id)->whereBetween('date',[$prevWeek,date('Y/m/d', strtotime("-1 day", strtotime($startDate)))])->select('bs')->get();

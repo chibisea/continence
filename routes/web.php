@@ -30,6 +30,8 @@ Route::group(['middleware' => 'auth'], function() {
     Route::post('diary/create', 'DiaryController@create');
     
     Route::get('diary/index', 'DiaryController@index');
+    
+    Route::get('profile/graph', 'DiaryController@graph');
 
 });
 

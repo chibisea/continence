@@ -102,7 +102,7 @@
                     <div class="form-group row">
                         <label class="col-md-2">下剤の使用量(個/滴/錠/管/グラム)</label>
                         <select name="amount">
-                          @foreach(range(1,30) as $cnt)
+                          @foreach(range(0,30) as $cnt)
                            <option value="{{$cnt}}"> {{$cnt}}</option>
                           @endforeach
                         </select>

@@ -43,7 +43,7 @@ var mixedChart = new Chart(ctx, {
     datasets: [
           {
           label: '下剤の使用量',
-          data: [{{$total5}}, {{$total4}}, {{$total3}}, {{$total2}}, {{$total1}},],
+          data: {{json_encode(array_column($aggregateResults, 'amount'))}},
           borderColor : "rgba(254,97,132,0.8)",
           pointBackgroundColor:"rgba(254,97,132,0.8)",
           fill: false, 
@@ -52,12 +52,12 @@ var mixedChart = new Chart(ctx, {
           },
           {
           label: 'ブリストルスケール',
-          data: [{{$averagebs5}}, {{$averagebs4}}, {{$averagebs3}}, {{$averagebs2}}, {{$averagebs1}}],
+          data: {{json_encode(array_column($aggregateResults, 'bs'))}},
           borderColor : "rgba(4, 239, 122,0.8)",
           backgroundColor : "rgba(4, 239, 122,0.5)",
           yAxisID: "y-axis-1"
           }, ],
-    labels: ['{{$prev4Week."～"}}','{{$prev3Week."～"}}','{{$prev2Week."～"}}','{{$prevWeek."～"}}','{{$startDate."～"}}']
+    labels: {!! json_encode(array_column($aggregateResults, 'beginning')) !!}
   },
   options: complexChartOption
 });

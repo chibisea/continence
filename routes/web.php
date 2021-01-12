@@ -31,8 +31,7 @@ Route::group(['middleware' => 'auth'], function() {
     
     Route::get('diary/index', 'DiaryController@index');
     
-    Route::get('profile/graph', 'DiaryController@graph');
-
+    Route::get('profile/graph2', 'DiaryController@graph2');
 });
 
 Auth::routes();

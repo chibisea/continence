@@ -31,7 +31,7 @@
                                     <td>{{ $profile->disease}}</td>
                                     <td><button type="button" onclick="location.href='/diary/create?profile_id={{$profile->id}}'">日誌入力</button></td>
                                     <td><button type="button" onclick="location.href='/diary/index?profile_id={{$profile->id}}'">日誌確認</button></td>
-                                    <td><button type="button" onclick="location.href='/profile/graph?profile_id={{$profile->id}}'">下剤/BS推移</button></td>
+                                    <td><button type="button" onclick="location.href='/profile/graph2?profile_id={{$profile->id}}'">下剤/BS推移</button></td>
                                     <td>
                                      <div>
                                       <a href="{{ action('ProfileController@edit', ['id' => $profile->id]) }}">患者情報編集</a>
